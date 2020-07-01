@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title> </title>
+  <meta name="description" content=" ">
+  <meta name="author" content="Matt Mitchell Web Development">
+
+   <link rel="stylesheet" type="text/css" href="style.css" />
+
+			<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div class = "wrapper">
+<div id="app">
+<h1 v-once>{{ name }} </h1>
+ <p>VueJS is pretty cool - {{ name }} {{ age }} {{ age * 3 }}</p>
+    
+    <p> My age times 3 is  {{ times() }} </p>
+    <p>Here is a random number between 0 and 100 -- {{ float() }} </p>
+    <p></p>
+<p v-html="finishedLink"></p>
+   
+   <img v-bind:src="image">
+    <div>
+     
+    </div>
+    <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
+    <div>
+        <input type="text" v-bind:value="name">
+    </div>
+	</div> <!-- end of wrapper -->
+<script>
+	
+	
+	new Vue({
+		el: '#app',
+		data: {
+			age: 32,
+			name: 'Matt Mitchell',
+			image: '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Hazy_Crazy_Sunrise.jpg/800px-Hazy_Crazy_Sunrise.jpg"'
+		},
+		methods: {
+			times: function() {
+				return 32 * 3;
+			},
+			float: function() {
+				var Ran = Math.random();
+				return Ran * 100;
+			}
+		}
+	});
+	
+</script>
+ 
+</body>
+</html>

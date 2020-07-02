@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title> </title>
+  <meta name="description" content=" ">
+  <meta name="author" content="Matt Mitchell Web Development">
+
+   <link rel="stylesheet" type="text/css" href="" />
+   <script src="https://kit.fontawesome.com/6bf8533ada.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+<button v-on:click="increase(2, $event)">Click Me</button>
+
+<p> {{ counter }} </p>
+
+<p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
+<span v-on:mousemove.stop="dummy">DEAD SPOT</span></p>
+
+<input type="text" v-on:keyup.enter.space="alertMe"> <!--key modifier -->
+</div>
+
+
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			counter: 0
+		},
+		methods: {
+			increase: function (step, event) {
+				this.counter += step;
+			},
+			updateCoordinates: function(event) {
+				this.x = event.clientX;
+				this.y = event.clientY;
+			},
+			alertMe: function() {
+				alert('Alert!');
+			}
+		
+			}
+	});
+	
+</script>
+ 
+</body>
+</html>

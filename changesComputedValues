@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title> </title>
+  <meta name="description" content=" ">
+  <meta name="author" content="Matt Mitchell Web Development">
+
+   <link rel="stylesheet" type="text/css" href="style.css" />
+   <script src="https://kit.fontawesome.com/6bf8533ada.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div class = "wrapper">
+<div id="app">
+<button @click="counter++">Increase by 1</button> <!--shorthand for v-on is @ -->
+<button v-on:click="counter--">Decrease by 1</button> 
+<button @click="secondCounter++">Increase second</button>
+<p> Counter: {{counter}} || Second Counter: {{secondCounter}}</p>
+<p>Result: {{result()}} || {{output}}</p>
+
+</div>
+	</div>
+
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			counter: 0,
+			secondCounter: 0,
+		},
+		
+		computed: {
+			output: function() {
+				console.log('Computed');
+				return this.counter > 5 ? 'greater than 5' : 'smaller than 5';
+			}
+		},
+		
+		watch: {
+			counter: function(value) {
+				var vm = this;
+				setTimeout(function(){
+					vm.counter = 0;
+				}, 5000); //resets the counter after 5 seconds 
+			}
+		},
+		methods: {
+			result: function () {
+				console.log('methods');
+			return	this.counter > 5 ? 'Greater than 5' : 'Smaller than 5'
+			}
+			}
+	});
+	
+</script>
+ 
+</body>
+</html>
